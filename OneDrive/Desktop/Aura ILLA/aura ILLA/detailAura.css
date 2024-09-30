@@ -1,0 +1,372 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.centerCol1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px; /* Space between the h2 and this div */
+  text-align: center; /* Centers the content inside the div */
+}
+
+
+.nowPlaying p{
+  font-size: 18px;
+  color: #bbb;
+  font-weight: 400;
+}
+
+.no-slide1{
+  width: 80px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex; /* Use flexbox for the entire container */
+  align-items: center; /* Align items vertically in the center */
+  justify-content: space-between;  
+  padding: 20px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+
+nav {
+  flex-grow: 1; /* Allow the nav to take available space */
+  text-align: right; /* Align the nav items to the right */
+}
+
+nav ul {
+    list-style-type: none; /* Remove default list bullets */
+    display: flex; /* Display the menu items in a horizontal row */
+    justify-content: flex-end;  
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+   
+}
+  
+nav a:hover{
+  background-color:rgba(121, 11, 82) ; 
+  border-radius: 10px; /*gives curvers to hover square*/
+  text-decoration: none;
+  /* padding: 8px 16px;  */
+  transition: background-color 0.3s;}
+
+nav ul li {
+    margin: 0 10px;  
+}   
+  
+  
+nav ul li a {
+    text-decoration: none; /* Remove underline from links */
+    color: black; /* Set the text color to black for contrast */
+    font-weight: bold; /* Optional: Make the links bold */
+    padding: 10px;
+    transition: background-color 0.3s;
+    display: block; /* Change display to block */
+    width: 100%; /* Make the anchor take full width */
+
+
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  flex-basis: 50%;
+}
+
+.logo-img {
+  width: 100px; /* Scales logo image */
+  height: auto;
+  margin-right: 10px; /* Space between logo and text */
+}
+
+.logo-text-color {
+  font-size: 18px;
+  color: #333;
+  white-space: nowrap; /* Prevents text from breaking into a new line */
+}
+
+  
+.logo-holder {
+    display: inline-block;
+    margin-right: 70px;
+    vertical-align: middle; /* Align logo vertically with the nav */
+    text-decoration: none; /* Remove underline from links */
+
+  }
+
+.logo-text-color{
+    color:rgba(121, 11, 82);
+    margin-left: 10px;
+}  
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .container {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .logo-container {
+      justify-content: center;
+      margin-bottom: 20px;
+  }
+
+  nav ul {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  nav ul li {
+      margin: 10px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-img {
+      width: 80px; /* Smaller logo for small screens */
+  }
+
+  .logo-text-color {
+      font-size: 16px;
+  }
+}
+
+  
+/*PICS*/
+
+.small-container{
+  width: 100%;
+  cursor: zoom-in; /* Change cursor to zoom-in */
+  margin: auto;
+  padding-left: 5%; 
+  padding-right: 5%;
+  overflow: hidden; /* Hides the overflow when the image is zoomed */
+  position: relative; /* Needed for z-index to work properly */
+  transition: transform 2s ease;
+}
+
+input{
+  width: 50px;
+  border: none;
+  background: none;
+  color: #919191;
+  font-size: 15px;
+  margin: 0 10px;
+}
+ 
+
+input[type=checkbox]
+{
+ display: none; 
+}
+
+input[type=checkbox]:checked ~ label > img{
+  transform: scale(2.0); /* Scale the image to 120% on hover */
+  cursor: zoom-out;
+  z-index: 2;
+  transition: transform 0.5s ease;
+}
+
+.col-4{
+  flex-basis: 25%;
+  padding:10px;
+  min-width :200px;
+  margin-bottom:50px;
+  transition: transform 0.5s;
+  box-sizing: border-box;
+
+}
+
+.col-4 img{
+  width:100%; 
+  height: auto;
+  object-fit: cover; /* Ensures images maintain aspect ratio while filling the container */
+  cursor: zoom-in; /* Default cursor */
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
+  transition:transform 0.5s ease ;
+
+}
+
+@media only screen and (max-width: 600px) {
+  .col-4 {
+    flex-basis: 100%; /* Ensure single-column layout for smaller screens */
+  }
+
+  .col-4 img {
+    width: 100%; /* Ensure image remains responsive */
+    height: auto;
+  }
+}
+
+ 
+
+.col-4 p{
+  font-size: 14px;
+}
+
+.col-4:hover{
+  transform: translateY(-5px);
+ 
+}
+
+.row{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around; 
+}
+
+/*for da thumbs*/
+.post-ratings-container{
+  display: flex;
+  justify-content: end;
+  padding: 12px 0;
+  gap: 10px;
+}
+
+.post-rating {
+  display: flex;
+  align-items: center; /* Vertically centers content within each rating */
+  cursor: default;
+}
+
+.post-rating:not(:last-child) {
+  margin-right: 12px; 
+}
+
+/*thumb up*/
+.post-rating-selected > .post-rating-button,
+.post-rating-selected > .post-rating-count {
+  color: greenyellow;
+}
+ 
+.post-rating-button {
+  margin-right: 6px; /* Increase this value to add more space between button and count */
+  cursor: pointer;
+  color:rgb(50, 39, 46) ;
+}
+
+/*thumb down*/
+.post-rating:not(.post-rating-selected) > .post-rating-button:hover{
+  color: black;
+}
+
+/*FOOTER*/
+.footer{
+  background: #2b222a;
+  color: #8a8a8a;
+  font-size: 16px;
+  /* padding: 60px 0 20px; */
+  /* width: 100%;
+  box-sizing: border-box;    */
+
+}
+
+.container-footer {
+  /* width: 100%; */
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.row {
+  /* width: 100%;   */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+  flex-basis: 23%;
+  margin-bottom: 20px;
+  min-width: unset; 
+  margin: 0;
+}
+
+.footer-col-1 img, .footer-col-2 img {
+  width: 100%;
+  max-width: 150px;
+}
+
+.footer h3 {
+  margin-bottom: 10px;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+  list-style-type: none;
+
+}
+
+
+.footer p{
+  color:#faf7f7;
+}
+
+.app-logo{
+  margin-top: 20px;
+}
+
+.app-logo img{
+  width: 140px;
+}
+
+
+.footer h3{
+  color:#fff;
+  margin-bottom: 20px;
+}
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+ 
+.footer-col-2 img{
+  width:180px;
+  margin-bottom:20px;
+}
+
+.footer-col-3, .footer-col-4{
+  flex-basis:12% ;
+  text-align: center;
+
+}
+
+
+hr{
+  border:none;
+  border-top: 1px solid #bbb;
+
+  margin: 20px 0;
+}
+
+.copyright{
+  text-align: center;
+  margin-top: 20px;
+  color: #bbb;
+}
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 

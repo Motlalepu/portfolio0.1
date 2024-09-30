@@ -1,0 +1,576 @@
+*{
+    box-sizing: border-box;
+    margin:0 ;
+    padding: 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+body{
+    font-family: "Playfair Display", serif;
+    background-color:  black;
+    color: aliceblue;
+    margin: 0;
+    font-size: 16px;
+} 
+
+.centerCol{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centerCol p{
+  font-size: 18px;
+  color: #bbb;
+  font-weight: 400;
+}
+
+.no-slide{
+  width: 80px;
+  cursor: pointer;
+}
+
+ 
+
+a{
+    text-decoration: none;  /*remove underlines*/
+    color: aliceblue; 
+    &:hover{
+        text-decoration: underline; /*added a hover bc it was removed during removing the default underline*/
+    }   
+}
+
+header{
+    padding-top: 26px; 
+    padding-bottom:6px ;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: auto;
+    z-index:100; 
+    
+    background-color:rgb(129, 50, 95) ; 
+
+
+    .logo-holder{
+        display: flex;
+        padding: 6px;
+        align-items: center;
+        font-weight:600 ;
+ 
+    }
+}    
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;/*from align to fontsize helps center the letter*/
+    font-size: 32px;
+    /* background-color: rgb(8, 8, 8) ; */
+    color:#f1f1f1 ;
+    height: 64px;
+    width: 64px ;
+    margin-right:20px ;
+    border-radius: 50% ;
+    background-image: url(assets/sa\ flag.jpeg);
+
+}
+
+.logo-text{
+    flex: 1;
+    color:#f1f1f1 ;
+}
+
+header a{
+    margin-right: 40px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    ul{
+      display: flex; 
+      list-style-type: none;  /*helps remove the list alginment*/
+      gap: 5px;
+
+        li  {
+            display:inline-block ;
+            a {
+                display: inline-block;
+                padding: 10px 20px; /*space between*/
+                color:#000000 ;
+                &:hover{
+                   background-color:white ; 
+                   border-radius: 10px; /*gives curvers to hover square*/
+                   text-decoration: none;
+
+                }
+            }
+        }  
+    }
+} 
+
+/* Burger Menu (Hidden by Default) */
+#burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+#burger-menu div {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 768px) {
+  /* Hide the regular menu and display the burger menu */
+
+  #burger-menu {
+    display: flex;
+} 
+
+  nav ul {
+      display: none;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #fff;
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul.active {
+    display: flex;
+    text-align: center; /* Center text when responsive */
+
+}
+
+nav ul li {
+  width: 100%; /* Make each menu item take full width in mobile view */
+}
+
+nav ul li a {
+  width: 100%; /* Ensure the hover effect spans the full width */
+  &:hover {
+      background-color: white;
+      border-radius: 0; /* Remove the rounded corners for full width hover */
+  }
+}
+
+
+  
+
+  /* Show the mobile menu when the burger menu is clicked */
+  #burger-menu.active + ul {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background-color: #fff;
+      width: 100%;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul li {
+      margin-bottom: 10px;
+  }
+}
+
+
+.hero {
+    /* color: aliceblue;
+    text-align: center;
+    padding: 20em 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Full viewport height */
+    text-align: center;
+    color: aliceblue;
+    padding: 0 20px; /* Optional padding for mobile responsiveness */
+}
+
+ 
+
+  
+@supports (background-blend-mode: multiply) {
+    .hero {
+      background-image: 
+        
+      url('assets/firstsec.png'),
+      radial-gradient(#444,#2b2a2a);
+      background-blend-mode: multiply;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover !important;
+      background-attachment: fixed;
+  } 
+}  
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .hero {
+      background-image: 
+          url('assets/updated\ cover.png'),
+          radial-gradient(#444,#2b2a2a); /* Keep the gradient if needed */
+      background-blend-mode: multiply;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: scroll; /* For mobile scrolling */
+  }
+}
+
+h1,h2,h3,p{
+    margin: 0;
+    color: rgb(173, 242, 34);
+}
+
+.container{
+    /* height:85% ; */
+    /* width: 85%;
+    max-width:70em; 
+    margin: 0 auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 70em; /* You can adjust the width */
+    margin: 0 auto;
+}
+
+.spacing > *+* {
+    margin-top: var(--spacer,2rem); /*this gives uniform spacing to the h1,h2..*/
+}
+
+.btn{
+    display: inline-block; /*this helps anchor */
+    text-decoration: none;
+    padding: .5em 1.25em;
+    background-color: rgb(121, 11, 82);
+    color: var(--clr-text, white);
+    font-weight: 700;
+    text-transform: uppercase; /*make capital letters*/
+    font-size: 1.125rem;
+    border-radius:.25em ;
+    transition: 
+    transform 250ms ease-in-out,
+    opacity 250ms linear;
+  }
+  
+  .btn:hover,
+  .btn:focus{
+    transform:scale(1.1) ;
+    opacity: .9;
+}
+
+.primary-title{
+    font-size: clamp(3rem, calc(5vw + 1rem), 4.5rem); /*smallest it can be is # biggest is 4.5 */
+    font-size: 4rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/*PRODUCTs*/
+
+.title{
+  text-align: center;
+  font-size: clamp(2.5rem, calc(5vw + 1rem),4rem);
+  line-height: 1;
+  margin-bottom: 5rem;
+  margin: 70px;
+  background-color: rgb(11, 36, 36);
+ }
+
+.our-products{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+}
+.container-pro{
+  height: 750px;
+  width:490px;
+  /* box-shadow: 6px 6px 35px rgb(224, 8, 130, .7) ; */
+  overflow: hidden;
+  
+}
+
+.images img{
+  height:100% ;
+  width:100% ;
+}
+
+/*arrows*/
+
+#prev, #next {
+    cursor: pointer;
+
+    position: absolute;
+    top: 206%;
+    width: auto;
+    margin-top: 0px;
+    padding: 16px;
+    /* color: white; */
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius:  0 3px 3px 0;
+    user-select: none;
+    transform: translateY(-50%); /* Adjusts position to truly center */
+
+}
+#prev {
+  left: 0; /* Stick to the left of the container */
+}
+
+#next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+#prev:hover, #next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+ }
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+  
+.active, .dot:hover {
+    background-color: #6e4868;
+}
+  
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+  
+@keyframes fade {
+    from { opacity: .4 } 
+    to { opacity: 1 }
+}
+
+/* Responsive navigation*/
+@media screen and (max-width: 768px) {
+  .prev, .next {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    margin-bottom: 12%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .prev, .next {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .dot {
+    height: 10px;
+    width: 10px;
+  }
+
+  /* Adjust text size inside the slider */
+  .mySlides .text {
+    font-size: 14px;
+}
+}
+
+@media screen and (max-width: 480px) {
+.prev, .next {
+  position: relative;
+  top: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+}
+
+.prev {
+  margin-right: 20px;
+}
+
+.next {
+  margin-left: 20px;
+}
+}
+
+
+/*Responsive Img*/
+@media screen and (max-width: 768px) {
+.slideshow-container {
+  max-width: 100%; /* Ensure container adapts to tablet size */
+}
+
+.product__img {
+    align-items: center;
+     
+}
+}
+
+@media screen and (min-width: 480px) {
+.slideshow-container {
+  max-width: 100%; /* Ensure container adapts to mobile size */
+}
+
+.mySlides img {
+  width: 80%; /* Ensure images fill the container width */
+  height: auto; /* Maintain aspect ratio */
+  padding: 20px;
+  margin: 40px;
+  display: flex;
+}
+}
+
+
+/*running time*/
+
+.slideshow-container .time{
+  position: absolute;
+  z-index: 1000;
+  width: 0%;
+  height: 3px;
+  background-color: #f1683a;
+  left: 0;
+  top: 0;
+}
+
+.slideshow-container.next .time,
+.slideshow-container.prev .time{
+    animation: runningTime 3s linear 1 forwards;
+}
+@keyframes runningTime{
+    from{ width: 100%}
+    to{width: 0}
+}
+
+.slideshow-container .container {
+  transition: transform 0.5s ease-in-out;
+}
+
+/*FOOTER*/
+.footer{
+  background: #2b222a;
+  color: #8a8a8a;
+  font-size: 14px;
+  /* padding: 60px 0 20px; */
+}
+
+.container-footer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4 {
+  flex-basis: 23%;
+  margin-bottom: 20px;
+  min-width: unset; 
+  margin: 0;
+}
+
+.footer-col-1 img, .footer-col-2 img {
+  width: 100%;
+  max-width: 150px;
+}
+
+.footer h3 {
+  margin-bottom: 10px;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer ul li {
+  margin-bottom: 10px;
+}
+
+
+.footer p{
+  color:#f8f2f2;
+}
+
+.app-logo{
+  margin-top: 20px;
+}
+
+.app-logo img{
+  width: 140px;
+}
+
+
+.footer h3{
+  color:#fff;
+  margin-bottom: 20px;
+}
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+ 
+.footer-col-2 img{
+  width:180px;
+  margin-bottom:20px;
+}
+
+.footer-col-3, .footer-col-4{
+  flex-basis:12% ;
+  text-align: center;
+
+}
+
+
+hr{
+  border:none;
+  border-top: 1px solid #555;
+
+  margin: 20px 0;
+}
+
+.copyright{
+  text-align: center;
+  margin-top: 20px;
+  color: #bbb;
+}
+
+
+ 
+
+
+
+
+
+
+
